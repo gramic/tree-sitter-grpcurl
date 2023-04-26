@@ -1,24 +1,5 @@
 [
   {
-    "type": "command",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "address",
-          "named": true
-        },
-        {
-          "type": "flag",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "flag",
     "named": true,
     "fields": {
@@ -39,6 +20,37 @@
       "types": [
         {
           "type": "proto",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "grpcurl",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "address",
+          "named": true
+        },
+        {
+          "type": "describe",
+          "named": true
+        },
+        {
+          "type": "flag",
+          "named": true
+        },
+        {
+          "type": "list",
+          "named": true
+        },
+        {
+          "type": "symbol",
           "named": true
         }
       ]
@@ -79,8 +91,20 @@
     "named": true
   },
   {
+    "type": "describe",
+    "named": true
+  },
+  {
+    "type": "grpc",
+    "named": false
+  },
+  {
     "type": "grpcurl",
     "named": false
+  },
+  {
+    "type": "list",
+    "named": true
   },
   {
     "type": "path",
@@ -88,6 +112,10 @@
   },
   {
     "type": "plaintext",
+    "named": true
+  },
+  {
+    "type": "symbol",
     "named": true
   }
 ]

@@ -1,3 +1,5 @@
+const JSON = require("tree-sitter-json/grammar")
+
 module.exports = grammar({
   name: 'grpcurl',
 
@@ -8,10 +10,17 @@ module.exports = grammar({
   // ],
 
   rules: {
-    command: $ => seq('grpcurl',
+    // source_file: $ => seq($.command_name,
+    grpcurl: $ => seq('grpcurl',
       optional(repeat($.flag)),
-      optional($.address)
+      optional($.address),
+      optional(choice($.list, $.describe)),
+      optional($.symbol),
     ),
+
+    command_name: $ => choice(token('grpcurl'), token('grpc')),
+
+    grpc: $ => token('grpc'),
 
     proto: $ => field('proto', seq(
       token('-proto'), field('path', $.path)
@@ -27,6 +36,12 @@ module.exports = grammar({
     plaintext: $ => token('-plaintext'),
 
     address: $ => token('localhost:443'),
+
+    list: $ => token('list'),
+
+    describe: $ => token('describe'),
+
+    symbol: $ => token(/\S+/),
 
     comment: $ => token(choice(
       seq('//', /.*/),

@@ -1,7 +1,7 @@
 {
   "name": "grpcurl",
   "rules": {
-    "command": {
+    "grpcurl": {
       "type": "SEQ",
       "members": [
         {
@@ -34,8 +34,67 @@
               "type": "BLANK"
             }
           ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "list"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "describe"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "symbol"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
+    },
+    "command_name": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "TOKEN",
+          "content": {
+            "type": "STRING",
+            "value": "grpcurl"
+          }
+        },
+        {
+          "type": "TOKEN",
+          "content": {
+            "type": "STRING",
+            "value": "grpc"
+          }
+        }
+      ]
+    },
+    "grpc": {
+      "type": "TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": "grpc"
+      }
     },
     "proto": {
       "type": "FIELD",
@@ -97,6 +156,27 @@
       "content": {
         "type": "STRING",
         "value": "localhost:443"
+      }
+    },
+    "list": {
+      "type": "TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": "list"
+      }
+    },
+    "describe": {
+      "type": "TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": "describe"
+      }
+    },
+    "symbol": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PATTERN",
+        "value": "\\S+"
       }
     },
     "comment": {

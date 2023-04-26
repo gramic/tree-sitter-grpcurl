@@ -1,12 +1,12 @@
 ==================
-Command
+Grpcurl command
 ==================
 
 grpcurl
 
 ---
 
-(command)
+(grpcurl)
 
 ==================
 Proto flag
@@ -16,7 +16,7 @@ grpcurl -proto file/path/here.proto
 
 ---
 
-(command
+(grpcurl
   (flag
     (proto
       (path))))
@@ -29,7 +29,7 @@ grpcurl -plaintext
 
 ---
 
-(command
+(grpcurl
   (flag
     (plaintext)))
 
@@ -41,7 +41,7 @@ grpcurl localhost:443
 
 ---
 
-(command
+(grpcurl
   (address))
 
 ==================
@@ -52,26 +52,56 @@ grpcurl -plaintext localhost:443
 
 ---
 
-(command
+(grpcurl
   (flag
     (plaintext))
   (address)
 )
 
 ==================
-Complicated
+Describe
 ==================
 
-grpcurl -plaintext -proto file/path/here.proto localhost:443
+grpcurl -plaintext describe
 
 ---
 
-(command
+(grpcurl
+  (flag
+    (plaintext))
+  (describe)
+)
+
+==================
+List
+==================
+
+grpcurl -plaintext list
+
+---
+
+(grpcurl
+  (flag
+    (plaintext))
+  (list)
+)
+
+==================
+Complicated
+==================
+
+grpcurl -plaintext -proto file/path/here.proto localhost:443 list service/ServiceName
+
+---
+
+(grpcurl
   (flag
     (plaintext))
   (flag
     (proto
         (path)))
   (address)
+  (list)
+  (symbol)
 )
 
