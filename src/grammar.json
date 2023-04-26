@@ -27,8 +27,12 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "SYMBOL",
-              "name": "address"
+              "type": "FIELD",
+              "name": "address",
+              "content": {
+                "type": "SYMBOL",
+                "name": "address"
+              }
             },
             {
               "type": "BLANK"
@@ -141,7 +145,7 @@
       "type": "TOKEN",
       "content": {
         "type": "PATTERN",
-        "value": ".*.proto"
+        "value": "\\S*\\.proto"
       }
     },
     "plaintext": {
@@ -155,7 +159,7 @@
       "type": "TOKEN",
       "content": {
         "type": "STRING",
-        "value": "localhost:443"
+        "value": "localhost:50051"
       }
     },
     "list": {

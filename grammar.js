@@ -13,7 +13,7 @@ module.exports = grammar({
     // source_file: $ => seq($.command_name,
     grpcurl: $ => seq('grpcurl',
       optional(repeat($.flag)),
-      optional($.address),
+      optional(field('address', $.address)),
       optional(choice($.list, $.describe)),
       optional($.symbol),
     ),
@@ -31,11 +31,11 @@ module.exports = grammar({
       $.proto,
     ),
 
-    path: $ => token(/.*.proto/),
+    path: $ => token(/\S*\.proto/),
 
     plaintext: $ => token('-plaintext'),
 
-    address: $ => token('localhost:443'),
+    address: $ => token('localhost:50051'),
 
     list: $ => token('list'),
 

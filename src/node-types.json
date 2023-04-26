@@ -28,15 +28,22 @@
   {
     "type": "grpcurl",
     "named": true,
-    "fields": {},
+    "fields": {
+      "address": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "address",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": false,
       "types": [
-        {
-          "type": "address",
-          "named": true
-        },
         {
           "type": "describe",
           "named": true

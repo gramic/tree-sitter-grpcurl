@@ -37,7 +37,7 @@ grpcurl -plaintext
 Address only
 ==================
 
-grpcurl localhost:443
+grpcurl localhost:50051
 
 ---
 
@@ -48,7 +48,7 @@ grpcurl localhost:443
 Address with a single flag
 ==================
 
-grpcurl -plaintext localhost:443
+grpcurl -plaintext localhost:50051
 
 ---
 
@@ -90,7 +90,7 @@ grpcurl -plaintext list
 Complicated
 ==================
 
-grpcurl -plaintext -proto file/path/here.proto localhost:443 list service/ServiceName
+grpcurl -plaintext -proto file/path/here.proto localhost:50051 list service/ServiceName
 
 ---
 
