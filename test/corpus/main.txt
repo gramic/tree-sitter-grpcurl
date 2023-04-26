@@ -1,0 +1,77 @@
+==================
+Command
+==================
+
+grpcurl
+
+---
+
+(command)
+
+==================
+Proto flag
+==================
+
+grpcurl -proto file/path/here.proto
+
+---
+
+(command
+  (flag
+    (proto
+      (path))))
+
+==================
+Plaintext flag
+==================
+
+grpcurl -plaintext
+
+---
+
+(command
+  (flag
+    (plaintext)))
+
+==================
+Address only
+==================
+
+grpcurl localhost:443
+
+---
+
+(command
+  (address))
+
+==================
+Address with a single flag
+==================
+
+grpcurl -plaintext localhost:443
+
+---
+
+(command
+  (flag
+    (plaintext))
+  (address)
+)
+
+==================
+Complicated
+==================
+
+grpcurl -plaintext -proto file/path/here.proto localhost:443
+
+---
+
+(command
+  (flag
+    (plaintext))
+  (flag
+    (proto
+        (path)))
+  (address)
+)
+

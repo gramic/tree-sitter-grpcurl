@@ -1,0 +1,93 @@
+[
+  {
+    "type": "command",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "address",
+          "named": true
+        },
+        {
+          "type": "flag",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "flag",
+    "named": true,
+    "fields": {
+      "plaintext": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "plaintext",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "proto",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "proto",
+    "named": true,
+    "fields": {
+      "path": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "path",
+            "named": true
+          }
+        ]
+      },
+      "proto": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "-proto",
+            "named": false
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "-proto",
+    "named": false
+  },
+  {
+    "type": "address",
+    "named": true
+  },
+  {
+    "type": "grpcurl",
+    "named": false
+  },
+  {
+    "type": "path",
+    "named": true
+  },
+  {
+    "type": "plaintext",
+    "named": true
+  }
+]

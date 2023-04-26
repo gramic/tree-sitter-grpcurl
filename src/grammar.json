@@ -1,0 +1,136 @@
+{
+  "name": "grpcurl",
+  "rules": {
+    "command": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "grpcurl"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SYMBOL",
+                "name": "flag"
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "address"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "proto": {
+      "type": "FIELD",
+      "name": "proto",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "TOKEN",
+            "content": {
+              "type": "STRING",
+              "value": "-proto"
+            }
+          },
+          {
+            "type": "FIELD",
+            "name": "path",
+            "content": {
+              "type": "SYMBOL",
+              "name": "path"
+            }
+          }
+        ]
+      }
+    },
+    "flag": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "plaintext",
+          "content": {
+            "type": "SYMBOL",
+            "name": "plaintext"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "proto"
+        }
+      ]
+    },
+    "path": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PATTERN",
+        "value": ".*.proto"
+      }
+    },
+    "plaintext": {
+      "type": "TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": "-plaintext"
+      }
+    },
+    "address": {
+      "type": "TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": "localhost:443"
+      }
+    },
+    "comment": {
+      "type": "TOKEN",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "//"
+              },
+              {
+                "type": "PATTERN",
+                "value": ".*"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "extras": [
+    {
+      "type": "PATTERN",
+      "value": "\\s"
+    }
+  ],
+  "conflicts": [],
+  "precedences": [],
+  "externals": [],
+  "inline": [],
+  "supertypes": []
+}
+
