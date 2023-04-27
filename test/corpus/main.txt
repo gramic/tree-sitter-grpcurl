@@ -1,4 +1,28 @@
 ==================
+Line comment test
+==================
+
+// Some line comment text content
+
+---
+
+(source_file
+  (line_comment
+    (line_comment_text)))
+
+==================
+Block comment test
+==================
+
+/* Some comment text content */
+
+---
+
+(source_file
+  (block_comment
+    (comment_text)))
+
+==================
 Grpcurl command
 ==================
 
@@ -6,7 +30,9 @@ grpcurl
 
 ---
 
-(grpcurl)
+(source_file
+  (grpcurl
+    (command)))
 
 ==================
 Proto flag
@@ -16,10 +42,12 @@ grpcurl -proto file/path/here.proto
 
 ---
 
-(grpcurl
-  (flag
-    (proto
-      (path))))
+(source_file
+  (grpcurl
+    (command
+      (flag
+        (proto
+          (path))))))
 
 ==================
 Plaintext flag
@@ -29,9 +57,11 @@ grpcurl -plaintext
 
 ---
 
-(grpcurl
-  (flag
-    (plaintext)))
+(source_file
+  (grpcurl
+    (command
+      (flag
+        (plaintext)))))
 
 ==================
 Address only
@@ -41,8 +71,10 @@ grpcurl localhost:50051
 
 ---
 
-(grpcurl
-  (address))
+(source_file
+  (grpcurl
+    (command
+      (address))))
 
 ==================
 Address with a single flag
@@ -52,11 +84,13 @@ grpcurl -plaintext localhost:50051
 
 ---
 
-(grpcurl
-  (flag
-    (plaintext))
-  (address)
-)
+(source_file
+  (grpcurl
+    (command
+      (flag
+        (plaintext))
+      (address)
+    )))
 
 ==================
 Describe
@@ -66,11 +100,13 @@ grpcurl -plaintext describe
 
 ---
 
-(grpcurl
-  (flag
-    (plaintext))
-  (describe)
-)
+(source_file
+  (grpcurl
+    (command
+      (flag
+        (plaintext))
+      (describe)
+    )))
 
 ==================
 List
@@ -80,11 +116,32 @@ grpcurl -plaintext list
 
 ---
 
-(grpcurl
-  (flag
-    (plaintext))
-  (list)
-)
+(source_file
+  (grpcurl
+    (command
+      (flag
+        (plaintext))
+      (list)
+    )))
+
+==================
+Json data
+==================
+
+grpcurl -plaintext some/Symbol
+{
+  "property1": "value1"
+}
+
+---
+
+(source_file
+  (grpcurl
+    (command
+      (flag
+        (plaintext))
+      (symbol)))
+  (data))
 
 ==================
 Complicated
@@ -94,14 +151,16 @@ grpcurl -plaintext -proto file/path/here.proto localhost:50051 list service/Serv
 
 ---
 
-(grpcurl
-  (flag
-    (plaintext))
-  (flag
-    (proto
-        (path)))
-  (address)
-  (list)
-  (symbol)
-)
+(source_file
+  (grpcurl
+    (command
+      (flag
+        (plaintext))
+      (flag
+        (proto
+            (path)))
+      (address)
+      (list)
+      (symbol)
+    )))
 

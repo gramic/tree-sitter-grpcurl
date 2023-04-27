@@ -4,18 +4,30 @@ module.exports = grammar({
   name: 'grpcurl',
 
 
-  // extras: $ => [
-  //   /\s/,
-  //   $.comment,
-  // ],
+  extras: $ => [
+    /\s/,
+    $.block_comment,
+    $.line_comment,
+    $.data,
+  ],
 
   rules: {
-    // source_file: $ => seq($.command_name,
-    grpcurl: $ => seq('grpcurl',
+    source_file: $ => repeat($.grpcurl),
+
+    grpcurl : $ => $.command,
+
+    // grpcurl : $ => seq(
+    //   $.command,
+    //   optional($.data)
+    // ),
+
+    command: $ => seq('grpcurl',
       optional(repeat($.flag)),
       optional(field('address', $.address)),
       optional(choice($.list, $.describe)),
       optional($.symbol),
+      optional($.data),
+      token('\n'),
     ),
 
     command_name: $ => choice(token('grpcurl'), token('grpc')),
@@ -43,13 +55,26 @@ module.exports = grammar({
 
     symbol: $ => token(/\S+/),
 
-    comment: $ => token(choice(
-      seq('//', /.*/),
-      // seq(
-      //   '/*',
-      //   /[^*]*\*+([^/*][^*]*\*+)*/,
-      //   '/'
-      // )
-    )),
+    data: $ => seq(
+      "{",
+      optional(repeat1(choice(/.|\n|\r/))),
+      "}",
+    ),
+
+    line_comment: $ => seq(
+      "//",
+      optional($.line_comment_text),
+      "\n"
+    ),
+
+    line_comment_text: $ => repeat1(choice(/./)),
+
+    block_comment: $ => seq(
+      "/*",
+      optional($.comment_text),
+      "*/"
+    ),
+
+    comment_text: $ => repeat1(choice(/.|\n|\r/)),
   }
 });
