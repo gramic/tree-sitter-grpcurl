@@ -27,16 +27,32 @@
             "named": true
           }
         ]
+      },
+      "data": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "data",
+            "named": true
+          }
+        ]
+      },
+      "symbol": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
       }
     },
     "children": {
       "multiple": true,
       "required": false,
       "types": [
-        {
-          "type": "data",
-          "named": true
-        },
         {
           "type": "describe",
           "named": true
@@ -47,10 +63,6 @@
         },
         {
           "type": "list",
-          "named": true
-        },
-        {
-          "type": "symbol",
           "named": true
         }
       ]
@@ -64,7 +76,18 @@
   {
     "type": "data",
     "named": true,
-    "fields": {}
+    "fields": {
+      "data_start": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "{",
+            "named": false
+          }
+        ]
+      }
+    }
   },
   {
     "type": "flag",

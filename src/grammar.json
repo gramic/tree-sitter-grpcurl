@@ -75,8 +75,12 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "SYMBOL",
-              "name": "symbol"
+              "type": "FIELD",
+              "name": "symbol",
+              "content": {
+                "type": "SYMBOL",
+                "name": "symbol"
+              }
             },
             {
               "type": "BLANK"
@@ -87,8 +91,12 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "SYMBOL",
-              "name": "data"
+              "type": "FIELD",
+              "name": "data",
+              "content": {
+                "type": "SYMBOL",
+                "name": "data"
+              }
             },
             {
               "type": "BLANK"
@@ -217,8 +225,12 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "{"
+          "type": "FIELD",
+          "name": "data_start",
+          "content": {
+            "type": "STRING",
+            "value": "{"
+          }
         },
         {
           "type": "CHOICE",

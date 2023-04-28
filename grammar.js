@@ -25,8 +25,8 @@ module.exports = grammar({
       optional(repeat($.flag)),
       optional(field('address', $.address)),
       optional(choice($.list, $.describe)),
-      optional($.symbol),
-      optional($.data),
+      optional(field('symbol', $.symbol)),
+      optional(field('data', $.data)),
       token('\n'),
     ),
 
