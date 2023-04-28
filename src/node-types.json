@@ -76,18 +76,7 @@
   {
     "type": "data",
     "named": true,
-    "fields": {
-      "data_start": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "{",
-            "named": false
-          }
-        ]
-      }
-    }
+    "fields": {}
   },
   {
     "type": "flag",

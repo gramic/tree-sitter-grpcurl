@@ -225,12 +225,8 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "FIELD",
-          "name": "data_start",
-          "content": {
-            "type": "STRING",
-            "value": "{"
-          }
+          "type": "STRING",
+          "value": "{"
         },
         {
           "type": "CHOICE",
